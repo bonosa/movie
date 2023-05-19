@@ -1,0 +1,6 @@
+streamlit
+pandas
+sentence_transformers
+annoy
+nmslib
+numpy
