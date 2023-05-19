@@ -14,7 +14,7 @@ if uploaded_file is not None:
     data = pd.read_csv(uploaded_file)
     st.write(data)
 
-df = pd.read_csv('movies.csv')
+
 
 # Load a pre-trained BERT model
 model = SentenceTransformer('all-MiniLM-L6-v2')
