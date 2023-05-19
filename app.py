@@ -36,7 +36,7 @@ if uploaded_file is not None:
     df = load_data(uploaded_file)
     model = load_model()
     index = create_index(df, model)
-    query = st.text_input('Enter a movie title:')
+    query = st.text_input('Enter a movie genre:')
     if query:
         recommendations = get_recommendations(query, df, model, index)
         st.write(recommendations)
