@@ -4,6 +4,16 @@ from sentence_transformers import SentenceTransformer
 from datasets import load_dataset
 import numpy as np
 # Load your data (e.g. movie titles and descriptions)
+
+import streamlit as st
+import pandas as pd
+
+uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+
+if uploaded_file is not None:
+    data = pd.read_csv(uploaded_file)
+    st.write(data)
+
 df = pd.read_csv('movies.csv')
 
 # Load a pre-trained BERT model
