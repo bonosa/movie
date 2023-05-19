@@ -15,7 +15,7 @@ def load_model():
 
 @st.cache(allow_output_mutation=True)
 def create_index(df, model):
-    embeddings = model.encode(df['title'].tolist())
+    embeddings = model.encode(df['genres'].tolist())
     f = len(embeddings[0])
     t = AnnoyIndex(f, 'angular')
     for i, v in enumerate(embeddings):
@@ -25,7 +25,7 @@ def create_index(df, model):
 
 def get_recommendations(query, df, model, index):
     query_embedding = model.encode([query])[0]
-    indices = index.get_nns_by_vector(query_embedding, 5)
+    indices = index.get_nns_by_vector(query_embedding, 6)
     recommendations = df['title'].iloc[indices]
     return recommendations
 
@@ -36,7 +36,10 @@ if uploaded_file is not None:
     df = load_data(uploaded_file)
     model = load_model()
     index = create_index(df, model)
-    query = st.text_input('Enter a movie genre:')
-    if query:
-        recommendations = get_recommendations(query, df, model, index)
-        st.write(recommendations)
+
+    st.write('Example genres: Action, Comedy, Romance')
+    query = st.text_input('Enter a genre:')
+    if st.button('Submit'):
+        if query:
+            recommendations = get_recommendations(query, df, model, index)
+            st.write(recommendations)
