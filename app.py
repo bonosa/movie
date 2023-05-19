@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from sentence_transformers import SentenceTransformer
-from datasets import load_dataset
+
 import numpy as np
 # Load your data (e.g. movie titles and descriptions)
 
