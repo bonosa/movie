@@ -9,7 +9,8 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 @st.cache(allow_output_mutation=True)
 def load_data():
-    df = pd.read_csv('https://storage.googleapis.com/movves123/movies.csv')
+    df = pd.read_csv('movies.csv')
+    #https://storage.googleapis.com/movv.csv'es123/movies.csv)
     return df
 
 df = load_data()
