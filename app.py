@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from annoy import AnnoyIndex
-url=https://console.cloud.google.com/storage/browser/moves12345
+url=https://storage.googleapis.com/movves123/movies.csv
 
 
 @st.cache(allow_output_mutation=True)
