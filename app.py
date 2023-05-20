@@ -2,11 +2,16 @@ import streamlit as st
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from annoy import AnnoyIndex
+url=https://console.cloud.google.com/storage/browser/moves12345
+
 
 @st.cache(allow_output_mutation=True)
-def load_data(file):
-    df = pd.read_csv(file)
+def load_data(url):
+    df = pd.read_csv(url)
     return df
+
+df = load_data(url)
+
 
 @st.cache(allow_output_mutation=True)
 def load_model():
