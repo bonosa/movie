@@ -42,12 +42,12 @@ if st.button('Submit'):
         results = zip(range(len(distances)), distances)
         results = sorted(results, key=lambda x: x[1])
 
-        st.write("\n\n======================\n\n")
+        #st.write("\n\n======================\n\n")
         st.write("Query:", query)
         st.write("\nTop 5 most similar sentences in corpus:")
 
         for idx, distance in results[0:top_k]:
             st.write(sentences[idx].strip(), "(Score: %.4f)" % (1-distance))
 
-        st.write("\n\n======================\n\n")
+        #st.write("\n\n======================\n\n")
 
